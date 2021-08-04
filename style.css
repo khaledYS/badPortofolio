@@ -1,0 +1,277 @@
+/* font = font-family: 'Roboto', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+:root{
+    --time-duration: 1%;
+    --text-font: monospace;
+    --text-size: 3rem;
+    --text-spcae : calc(6 * 3rem);
+}
+html{
+    scroll-behavior: smooth;
+    direction: ltr;
+}
+*{
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box !important;
+    max-height:100vh ;
+    /* take this when enternet is on */
+    font-family: sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+div.intro-container{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100vw;
+    height: 100vh;
+}
+div.intro{
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    background-image: url(./img/man-2933984.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+div.intro > div.background{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -200;
+    background: #000;
+    opacity: .5;
+}
+
+
+div.say-intro{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align:center;
+    margin: 0 20% 0 0 ;
+}
+
+div.text-wrapper{
+    height: fit-content;
+    width: fit-content;
+    display: block;
+    margin: 0 auto ;
+}
+
+
+
+div.text-wrapper > div.text-container {
+    position: relative;
+    overflow: hidden;
+    font-family: var(--text-font);
+    font-size: var(--text-size);
+    font-weight: 800;
+    width:  var(--text-spcae);
+    height:  calc(3* 2rem);
+}
+div.text-wrapper > span{
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+div.text-wrapper > div.text-container > div.text{
+    font-size: var(--text-size);
+    font-family: inherit;
+    transition: all 2s ease-in-out;
+    position: absolute;
+    top: 0 ;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    animation: word-changing-animation 25s ease-in-out infinite;
+}@keyframes word-changing-animation {
+    0%{
+        opacity: 1;
+        transform: translateY(-0%);
+    }
+    10%{
+        transform: translateY(-0%);
+    }
+    20%, 12%{
+        transform: translateY(-100%);
+    }
+    30%{
+        transform: translateY(-100%);
+    }
+    40%, 32%{
+        transform: translateY(-200%);
+    }
+    50%{
+        transform: translateY(-200%);
+    }
+    60%, 52%{
+        transform: translateY(-300%);
+    }
+    70%{
+        transform: translateY(-300%);
+    }
+    80%, 72%{
+        transform: translateY(-400%);
+    }
+    90%{
+        transform: translateY(-400%);
+    }
+    95%{
+        transform: translateY(-400%);
+    }
+    100%, 97%{
+        transform: translateY(0%);
+    }
+}
+div.text-wrapper > div.text-container > div.text > div{
+    vertical-align: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+div.text-wrapper > div.text-container > div.text > div > div:not(div.crow){
+    width: 100%;
+    font-size: var(--text-size);
+    font-family: inherit;
+    color: rgb(230, 56, 56);
+    animation: word-typing 5s ease infinite;
+    overflow: hidden;
+}@keyframes word-typing {
+    0%{
+        width: 0%;
+    }40%, 70%{
+        width: 100%;
+    }100%{
+        width: 0%;
+    }
+}
+
+div.crow{
+    font-size: var(--text-size);
+    font-family: var(--text-font);
+    animation: crow 1s linear infinite;
+    opacity: 1;
+    z-index: -12;
+}@keyframes crow {
+    0%{
+        opacity: 0;
+    }100%, 10%{
+        opacity:1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* learned */
+div.learned{
+    height: 100vh;
+    background: #000;
+}
+
+
+/* nav */
+nav.navbar{
+    position: static;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    color: white;
+    transition: all .7s ease ;
+    background: #6d5a4a;
+    opacity: 1;
+    list-style: none;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 0 0 0 ;
+    opacity: 1;
+}
+nav.navbar.active{
+    box-shadow: 0 -6px 89px -10px #fff;
+    padding: 20px 20px;
+    opacity: 1;
+    background: #016da0;
+    position: fixed;
+    top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* reset settings  */
+
+ /* 
+ 
+ position: absolute;
+ left: 50%;
+ top:50%;
+ tranform: translate(-50%, -50%)
+ 
+ */
