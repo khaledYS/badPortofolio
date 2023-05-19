@@ -1,22 +1,37 @@
-const toType = document.querySelectorAll('.typed-lib')
+const textCon = document.querySelector('.text-con')
+const words = textCon.getAttribute("data-text").split(",")
+const sleep  = (milli) =>{ return new Promise(res => setTimeout(res, milli))}
+const options = {
+    wordSpeed: 3, 
+    charSpeed:1, 
+    charBackWordSpeed: .6,
+    breakBetweenWords: 1,
+}
+async function loop(){
 
 
-toType.forEach((element) => {
     
-    let attr = element.getAttribute('typed-data')
-    attr = attr.split(',')
-    attr = attr.map(e=>e.trim())
+        for ( let word of words ){
 
-    setInterval(() => {
-        let text = attr[Math.floor(Math.random()*attr.length)]
-        console.log(text)
-        const promotion = element.querySelector('span')
-        promotion.style.width = '%0'
-        promotion.setAttribute("typed-data-text", " "+text)
-        promotion.innerHTML = promotion.getAttribute('typed-data-text')
-        promotion.style.width = '100%'
-    }, 5400);
+            let chars = word.split("")
+            chars = chars.map((char)=>char.replaceAll(" ", " &ThinSpace;"))
+            
+            for (let char of chars) {
+                await sleep(100 * options.charSpeed)
+                textCon.innerHTML += char
+            }
 
+            await sleep(1000 * options.wordSpeed)
 
+            for (let char of chars.reverse()) {
+                await sleep(100 * options.charBackWordSpeed)
+                textCon.innerHTML = textCon.innerText.substring(0, textCon.innerText.length-1);
+            }
+            await sleep(100 * options.breakBetweenWords)
+            
+        };
 
-});
+        // await sleep(2000)
+        loop()
+}
+loop()
